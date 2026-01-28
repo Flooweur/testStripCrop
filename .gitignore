@@ -1,0 +1,30 @@
+# =============================================================================
+# Root .gitignore
+# =============================================================================
+
+# .NET build outputs
+[Dd]ebug/
+[Rr]elease/
+[Bb]in/
+[Oo]bj/
+
+# Visual Studio / IDE files
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+
+# Output directory (cropped images)
+output/
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
