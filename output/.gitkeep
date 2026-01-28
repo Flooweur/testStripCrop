@@ -1,0 +1,2 @@
+# This file ensures the output folder is tracked by git
+# Actual cropped images are ignored via .gitignore

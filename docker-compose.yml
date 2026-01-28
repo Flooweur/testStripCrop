@@ -1,0 +1,56 @@
+# ==============================================================================
+# Pool Test Strip Cropper - Docker Compose Configuration
+# ==============================================================================
+# This file makes it easy to run the service with docker-compose.
+#
+# Usage:
+#   docker-compose up --build        # Build and run
+#   docker-compose up -d             # Run in background
+#   docker-compose down              # Stop and remove
+#   docker-compose logs -f           # View logs
+# ==============================================================================
+
+version: '3.8'
+
+services:
+  pool-test-strip-cropper:
+    # Build from the Dockerfile in current directory
+    build:
+      context: .
+      dockerfile: Dockerfile
+    
+    # Container name for easy identification
+    container_name: pool-test-strip-cropper
+    
+    # Restart policy - always restart unless explicitly stopped
+    restart: unless-stopped
+    
+    # Port mapping - host:container
+    ports:
+      - "8000:8000"
+    
+    # Volume mapping - persist output files on host
+    volumes:
+      - ./output:/app/output
+    
+    # Environment variables (can be overridden)
+    environment:
+      - OUTPUT_FOLDER=/app/output
+    
+    # Health check configuration
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    
+    # Resource limits (optional but recommended for production)
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
+        reservations:
+          cpus: '0.25'
+          memory: 256M
