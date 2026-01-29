@@ -1,0 +1,44 @@
+# ============================================================================
+# Docker Ignore File
+# ============================================================================
+# Excludes files from the build context to speed up image building
+# and reduce the final image size
+# ============================================================================
+
+# Build outputs
+bin/
+obj/
+out/
+
+# IDE and editor files
+.vs/
+.vscode/
+*.user
+*.suo
+*.DotSettings
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# Documentation (not needed in container)
+*.md
+LICENSE
+
+# Docker files (prevent recursive inclusion)
+Dockerfile*
+docker-compose*
+.dockerignore
+
+# Output folder (should be mounted as volume)
+output/
+
+# Test files
+*.Tests/
+tests/
+
+# Local environment files
+.env
+.env.*
+appsettings.Development.json

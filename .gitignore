@@ -1,0 +1,27 @@
+# .NET build outputs
+bin/
+obj/
+out/
+
+# IDE files
+.vs/
+.vscode/
+*.user
+*.suo
+*.DotSettings
+
+# Test images and outputs
+output/*
+!output/.gitkeep
+test_strip.png
+create_test_image.py
+
+# Logs
+*.log
+
+# Environment files
+.env
+.env.*
+
+# MacOS
+.DS_Store
