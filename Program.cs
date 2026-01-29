@@ -139,6 +139,7 @@ app.MapPost("/api/crop", async (
 app.MapGet("/api/outputs", (IWebHostEnvironment env) =>
 {
     var files = Directory.GetFiles(outputPath)
+        .Where(f => !Path.GetFileName(f).StartsWith(".")) // Exclude hidden files
         .Select(f => new 
         {
             FileName = Path.GetFileName(f),
