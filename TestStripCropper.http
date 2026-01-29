@@ -1,0 +1,6 @@
+@TestStripCropper_HostAddress = http://localhost:5095
+
+GET {{TestStripCropper_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
